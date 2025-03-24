@@ -18,7 +18,7 @@ const NavigationScreen = ({ route }) => {
 
     // 📌 ดึงเส้นทางจาก Google Maps API
     const getDirections = async () => {
-        const GOOGLE_MAPS_API_KEY = "AIzaSyD_OZpaIe4PMWZ4eIlYYMjCxa8Q9S1lt-4"; // 🔑 ใส่ API Key ของคุณ
+        const GOOGLE_MAPS_API_KEY = "ใส่ api"; // 🔑 ใส่ API Key 
         const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${pickup.latitude},${pickup.longitude}&destination=${dropoff.latitude},${dropoff.longitude}&key=${GOOGLE_MAPS_API_KEY}&mode=driving`;
 
         try {
