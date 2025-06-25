@@ -100,4 +100,34 @@ router.get("/admin-dashboard", adminAuthMiddleware, (req, res) => {
   res.json({ message: "Welcome to Admin Dashboard", user: req.user });
 });
 
+// ✅ สมัคร User ใหม่
+router.post("/signup", async (req, res) => {
+  const { username, email, phone, password, profile, role } = req.body;
+
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "อีเมลนี้ถูกใช้แล้ว" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({
+      username,
+      email,
+      phone,
+      password: hashedPassword,
+      profile: profile || '',
+      role: role || 'user',
+    });
+
+    await newUser.save();
+
+    res.status(201).json({ message: "สร้างบัญชีผู้ใช้สำเร็จ" });
+  } catch (error) {
+    console.error("❌ Error creating user:", error);
+    res.status(500).json({ message: "เกิดข้อผิดพลาด" });
+  }
+});
+
 module.exports = router;
