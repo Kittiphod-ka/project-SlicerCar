@@ -1,1 +1,1 @@
-# ให้สลับ Branches จาก Main ไป Master
+# ให้สลับ branch จาก Main ไป Master
