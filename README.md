@@ -6,10 +6,11 @@
 
 
 # 1. สร้างโฟลเดอร์สำหรับเก็บโปรเจกต์ (ข้ามได้ถ้ามีแล้ว)
+\```bash
 mkdir my-project
 
 cd my-project
-
+\```
 # 2. Clone โปรเจกต์จาก GitHub โดยเลือก branch master
 git clone -b master https://github.com/Kittiphod-ka/project-SlicerCar.git
 
